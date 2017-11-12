@@ -1,0 +1,14 @@
+{
+    "name": "svi/mail",
+    "description": "Mail bundle for svi framework",
+    "license": "MIT",
+    "require": {
+        "svi/base": ">=1.0",
+        "swiftmailer/swiftmailer": ">=6"
+    },
+    "autoload": {
+        "psr-4" : {
+            "Svi\\MailBundle\\" : ""
+        }
+    }
+}
