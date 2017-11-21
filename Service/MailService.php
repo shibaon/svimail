@@ -21,12 +21,12 @@ class MailService extends AppContainer
 		if (!$this->app->getConfigService()->getParameter('mail.spool')) {
 			throw new \Exception('No mail.spool dir configured');
 		}
-		$spool = new \Swift_FileSpool($this->c->getApp()->getRootDir() . '/' . $this->c->getConfigService()->getParameter('mail.spool'));
+		$spool = new \Swift_FileSpool($this->app->getRootDir() . '/' . $this->app->getConfigService()->getParameter('mail.spool'));
 		if ($this->app->getConfigService()->getParameter('mail.spoolTimeLimit')) {
-			$spool->setTimeLimit($this->c->getConfigService()->getParameter('mail.spoolTimeLimit'));
+			$spool->setTimeLimit($this->app->getConfigService()->getParameter('mail.spoolTimeLimit'));
 		}
 		if ($this->app->getConfigService()->getParameter('mail.spoolMessageLimit')) {
-			$spool->setMessageLimit($this->c->getConfigService()->getParameter('mail.spoolMessageLimit'));
+			$spool->setMessageLimit($this->app->getConfigService()->getParameter('mail.spoolMessageLimit'));
 		}
 
 		$spool->flushQueue($this->getRealTransport());
